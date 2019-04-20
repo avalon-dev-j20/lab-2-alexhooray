@@ -2,16 +2,15 @@ package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
- * Задание №2
+ * Задание №1
  *
  * <p>Тема: "Потоковый ввод-вывод. Чтение и запись данных
- * в текстовом режиме".
+ * в двоичном режиме".
  */
-public class Task2 implements Task {
+public class Task1 implements Task {
 
     /**
      * {@inheritDoc}
@@ -19,32 +18,33 @@ public class Task2 implements Task {
     @Override
     public void run() throws IOException {
         File input = new File("assets/countries.txt");
-        File output = new File("countries_text_mode_output.txt");
+        File output = new File("countries_binary_mode_output.txt");
         String text = read(input);
         write(output, text);
+//        System.out.println(text);
 
         /*
-         * TODO(Студент): Выполнить задание №2
+         * TODO(Студент): Выполнить задание №1
          *
          * 1. Реализовать метод read.
          *
          *    При чтении файла следует пользоваться типами данных:
-         *    Reader, FileReader.
+         *    InputStream и FileInputStream.
          *
-         *    Для сохранения прочитанных данных следует пользоваться
-         *    классом StringBuilder.
+         *    Для сохранениня прочитанных данных следует пользоваться
+         *    классом ByteArrayOutputStream.
          *
          * 2. Реализовать метод write.
          *
          *    При реализации метода следует пользоваться типами данных:
-         *    Writer и FileWriter.
+         *    OutputStream и FileOutputStream.
          *
          * 3. С использованием отладчика проверить корректность работы программы.
          */
     }
 
     /**
-     * Выполняет чтение указанного файла в текстовом режиме.
+     * Выполняет чтение указанного файла в двоичном режиме.
      *
      * <p>Весь текст файла возвращается в виде одного
      * экземпляра типа {@link String}.
@@ -54,11 +54,19 @@ public class Task2 implements Task {
      * @throws IOException в случае ошибок ввода-вывода.
      */
     private String read(File file) throws IOException {
-        throw new UnsupportedOperationException("Not implement yet!");
+        try (InputStream input = new FileInputStream(file);
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[5];
+            int data;
+            while ((data = input.read(buffer)) > 0) {
+                bos.write(buffer, 0, data);
+            }
+            return bos.toString();
+        }
     }
 
     /**
-     * Выполняет запись текстоых данных в файл в текстовом
+     * Выполняет запись текстоых данных в файл в двоичном
      * режиме.
      *
      * @param file файл
@@ -66,6 +74,8 @@ public class Task2 implements Task {
      * @throws IOException в случае ошибок ввода-вывода.
      */
     private void write(File file, String text) throws IOException {
-        throw new UnsupportedOperationException("Not implemented yet!");
+        try (OutputStream output = new FileOutputStream(file)) {
+            output.write(text.getBytes());
+        }
     }
 }
