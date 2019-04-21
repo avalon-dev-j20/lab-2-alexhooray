@@ -1,4 +1,4 @@
-package ru.avalon.java.j20.labs.models;
+package src.ru.avalon.java.j20.labs.models;
 
 import java.text.ParseException;
 import java.util.Objects;

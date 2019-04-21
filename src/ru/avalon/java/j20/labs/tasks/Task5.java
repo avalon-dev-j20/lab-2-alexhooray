@@ -1,9 +1,8 @@
-package ru.avalon.java.j20.labs.tasks;
+package src.ru.avalon.java.j20.labs.tasks;
 
-import ru.avalon.java.j20.labs.Task;
+import src.ru.avalon.java.j20.labs.Task;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Locale;
 import java.util.ResourceBundle;
 

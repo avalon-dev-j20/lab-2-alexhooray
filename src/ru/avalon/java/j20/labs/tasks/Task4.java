@@ -1,6 +1,6 @@
-package ru.avalon.java.j20.labs.tasks;
+package src.ru.avalon.java.j20.labs.tasks;
 
-import ru.avalon.java.j20.labs.Task;
+import src.ru.avalon.java.j20.labs.Task;
 
 import java.io.IOException;
 import java.io.InputStream;

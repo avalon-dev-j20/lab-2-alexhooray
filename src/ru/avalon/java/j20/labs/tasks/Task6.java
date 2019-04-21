@@ -1,7 +1,7 @@
-package ru.avalon.java.j20.labs.tasks;
+package src.ru.avalon.java.j20.labs.tasks;
 
-import ru.avalon.java.j20.labs.Task;
-import ru.avalon.java.j20.labs.models.Country;
+import src.ru.avalon.java.j20.labs.Task;
+import src.ru.avalon.java.j20.labs.models.Country;
 
 import java.io.*;
 import java.text.ParseException;
