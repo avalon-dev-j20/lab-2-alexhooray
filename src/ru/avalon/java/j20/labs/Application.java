@@ -1,6 +1,7 @@
-package ru.avalon.java.j20.labs;
+package src.ru.avalon.java.j20.labs;
 
-import ru.avalon.java.j20.labs.tasks.*;
+
+import src.ru.avalon.java.j20.labs.tasks.*;
 
 /**
  * Лабораторная работа №2

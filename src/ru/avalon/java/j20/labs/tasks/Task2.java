@@ -1,9 +1,8 @@
-package ru.avalon.java.j20.labs.tasks;
+package src.ru.avalon.java.j20.labs.tasks;
 
-import ru.avalon.java.j20.labs.Task;
+import src.ru.avalon.java.j20.labs.Task;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Задание №2
@@ -19,9 +18,10 @@ public class Task2 implements Task {
     @Override
     public void run() throws IOException {
         File input = new File("assets/countries.txt");
-        File output = new File("countries_text_mode_output.txt");
+        File output = new File("src/resources/strings/countries_text_mode_output.txt");
         String text = read(input);
         write(output, text);
+//        System.out.println(text);
 
         /*
          * TODO(Студент): Выполнить задание №2
@@ -54,7 +54,15 @@ public class Task2 implements Task {
      * @throws IOException в случае ошибок ввода-вывода.
      */
     private String read(File file) throws IOException {
-        throw new UnsupportedOperationException("Not implement yet!");
+        try (Reader reader = new FileReader(file)) {
+            StringBuilder builder = new StringBuilder();
+            char[] buffer = new char[10];
+            int len;
+            while((len = reader.read(buffer)) != -1) {
+                builder.append(buffer, 0, len);
+            }
+            return builder.toString();
+        }
     }
 
     /**
@@ -66,6 +74,8 @@ public class Task2 implements Task {
      * @throws IOException в случае ошибок ввода-вывода.
      */
     private void write(File file, String text) throws IOException {
-        throw new UnsupportedOperationException("Not implemented yet!");
+        try(Writer writer = new FileWriter(file)) {
+            writer.write(text);
+        }
     }
 }

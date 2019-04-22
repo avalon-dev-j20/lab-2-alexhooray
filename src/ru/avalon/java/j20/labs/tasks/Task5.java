@@ -1,6 +1,6 @@
-package ru.avalon.java.j20.labs.tasks;
+package src.ru.avalon.java.j20.labs.tasks;
 
-import ru.avalon.java.j20.labs.Task;
+import src.ru.avalon.java.j20.labs.Task;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -18,6 +18,10 @@ public class Task5 implements Task {
      */
     @Override
     public void run() throws IOException {
+        String path = "src.resources.strings.titles";
+        ResourceBundle resourceBundle = read(path);
+        Locale locale = new Locale("ru");
+        ResourceBundle resourceBundle1 = read(path, locale);
         /*
          * TODO(Студент): Выполнить задание №5
          *
@@ -41,7 +45,7 @@ public class Task5 implements Task {
      * @return новый экземпляр типа {@link ResourceBundle}
      */
     private ResourceBundle read(String path) {
-        throw new UnsupportedOperationException("Not implement yet!");
+        return ResourceBundle.getBundle(path);
     }
 
     /**
@@ -51,6 +55,6 @@ public class Task5 implements Task {
      * @return новый экземпляр типа {@link ResourceBundle}
      */
     private ResourceBundle read(String path, Locale locale) {
-        throw new UnsupportedOperationException("Not implement yet!");
+        return ResourceBundle.getBundle(path, locale);
     }
 }

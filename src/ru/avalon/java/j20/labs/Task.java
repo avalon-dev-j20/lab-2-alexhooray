@@ -1,4 +1,4 @@
-package ru.avalon.java.j20.labs;
+package src.ru.avalon.java.j20.labs;
 
 /**
  * Абстрактное представление о задаче лабораторной работы.
